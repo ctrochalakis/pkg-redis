@@ -3,8 +3,7 @@ Description=Advanced key-value store
 After=network.target
 
 [Service]
-Type=forking
-ExecStart=/usr/bin/redis-sentinel /etc/redis/sentinel.conf
+ExecStart=/usr/bin/redis-sentinel /etc/redis/sentinel.conf --daemonize no
 ExecStop=/usr/bin/redis-cli -p 26379 shutdown
 Restart=always
 User=redis
